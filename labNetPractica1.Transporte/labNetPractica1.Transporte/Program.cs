@@ -26,20 +26,20 @@ namespace labNetPractica1.Transporte
                 transportesTaxis.Add( taxis );
             }
 
-            int j = 1;
-            foreach (var bus in transportesBuses)
-            {
-                Console.WriteLine($"Ominbus {j}: {bus.Avanzar()}");
-                j++;
-            }
+            MostrarInformacion(transportesTaxis, "Taxis");
+            MostrarInformacion(transportesBuses, "Omnibus");
 
-            j = 1;
-            foreach (var taxi in transportesTaxis)
-            {
-                Console.WriteLine($"Taxi {j}: {taxi.Avanzar()}");
-                j++;
-            }
             Console.ReadKey();
+        }
+
+        public static void MostrarInformacion(List<TransportePublico> transportes, string tipoTransporte)
+        {
+            int i = 1;
+            foreach (var transporte in transportes)
+            {
+                Console.WriteLine($"{tipoTransporte} {i}: {transporte.Avanzar()}");
+                i++;
+            }
         }
     }
 }

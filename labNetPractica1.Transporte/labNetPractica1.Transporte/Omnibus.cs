@@ -8,6 +8,5 @@ namespace labNetPractica1.Transporte
         public override string Avanzar() => $"{pasajeros} pasajeros";
 
         public override void Detenerse() { }
-   
     }
 }
