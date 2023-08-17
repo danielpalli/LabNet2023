@@ -11,7 +11,7 @@ namespace labNetPractica1.Transporte
         {
             this.pasajeros = pasajeros;
         }
-        public abstract string Avanzar();
+        public abstract void Avanzar();
         public abstract void Detenerse();
     }
 }

@@ -7,37 +7,37 @@ namespace labNetPractica1.Transporte
     {
         static void Main(string[] args)
         {
-            List<TransportePublico> transportesBuses = new List<TransportePublico>();
-            List<TransportePublico> transportesTaxis = new List<TransportePublico>();
+            List<TransportePublico> transportesBuses = AgregarPasajeroTransporte<Omnibus>("Omnibus");
+            List<TransportePublico> transportesTaxis = AgregarPasajeroTransporte<Taxi>("Taxi");
 
-            for (int i = 1; i <= 5; i++)
-            {
-                Omnibus omnibus = new Omnibus();
-                Console.WriteLine($"Ingrese la cantidad de pasajeros para el Omnibus {i}.");
-                omnibus.pasajeros = int.Parse(Console.ReadLine());
-                transportesBuses.Add( omnibus );
-            }
-
-            for (int i = 1; i <= 5; i++)
-            {
-                Taxi taxis = new Taxi();
-                Console.WriteLine($"Ingrese la cantidad de pasajeros para el Taxi {i}.");
-                taxis.pasajeros = int.Parse(Console.ReadLine());
-                transportesTaxis.Add( taxis );
-            }
-
-            MostrarInformacion(transportesTaxis, "Taxis");
-            MostrarInformacion(transportesBuses, "Omnibus");
+            MostrarInformacionTransporte(transportesBuses, "Omnibus");
+            MostrarInformacionTransporte(transportesTaxis, "Taxis");
 
             Console.ReadKey();
         }
 
-        public static void MostrarInformacion(List<TransportePublico> transportes, string tipoTransporte)
+        public static List<TransportePublico> AgregarPasajeroTransporte<T>(string tipoTransporte) where T : TransportePublico, new()
+        {
+            List<TransportePublico> transportes = new List<TransportePublico>();
+            for (int i = 1; i <= 5; i++)
+            {
+                T transporte = new T();
+                Console.WriteLine($"Ingrese la cantidad de pasajeros para el {tipoTransporte} {i}.");
+                transporte.pasajeros = int.Parse(Console.ReadLine());
+                //Faltaria agregar otras validaciones como si no es un numero, tambien si supera la capacidad maxima del transporte
+                if (transporte.pasajeros < 0) transporte.pasajeros = 0;
+                
+                transportes.Add(transporte);
+            }
+            return transportes;
+        }
+
+        public static void MostrarInformacionTransporte(List<TransportePublico> transportes, string tipoTransporte)
         {
             int i = 1;
             foreach (var transporte in transportes)
             {
-                Console.WriteLine($"{tipoTransporte} {i}: {transporte.Avanzar()}");
+                Console.WriteLine($"{tipoTransporte} {i}: {transporte.pasajeros} pasajeros");
                 i++;
             }
         }

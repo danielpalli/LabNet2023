@@ -9,7 +9,7 @@ namespace labNetPractica1.Transporte
     public class Taxi : TransportePublico
     {
         public Taxi() { }
-        public override string Avanzar() => $"{pasajeros} pasajeros";
+        public override void Avanzar() { }
         public override void Detenerse() { }
     }
 }
