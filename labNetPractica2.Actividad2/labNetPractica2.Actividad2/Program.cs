@@ -8,7 +8,35 @@ namespace labNetPractica2.Actividad2
         {
             PuntoUno();
             PuntoDos();
+            PuntoTres();
+            PuntoCuatro();
             Console.ReadKey();
+        }
+
+        public static void PuntoCuatro()
+        {
+            try
+            {
+                Logic.ExepPersonalizada();
+            }
+            catch (ExepcionPersonalizada e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public static void PuntoTres()
+        {
+            try
+            {
+                Logic logic = new Logic();
+                logic.MostrarExepcion();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                Console.WriteLine(e.GetType());
+            }
         }
 
         public static void PuntoDos()
