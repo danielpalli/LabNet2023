@@ -7,7 +7,8 @@ namespace labNetPractica2.Actividad2
         static void Main(string[] args)
         {
             PuntoUno();
-            //PuntoDos();
+            PuntoDos();
+            Console.ReadKey();
         }
 
         public static void PuntoDos()
@@ -20,7 +21,7 @@ namespace labNetPractica2.Actividad2
                 Console.Write("Ingrese el denominador:");
                 double divisor = double.Parse(Console.ReadLine());
 
-                double resultado = Program.Division(dividendo, divisor);
+                double resultado = Division(dividendo, divisor);
                 Console.WriteLine(resultado);
             }
             catch (FormatException)
@@ -30,27 +31,18 @@ namespace labNetPractica2.Actividad2
             catch (DivideByZeroException e)
             {
                 Console.WriteLine(e.Message);
-                Console.WriteLine("¡Solo Chuck Norris divide por cero!");
             }
         }
 
 
-        public static double Division(double a, double b)
+        public static double Division(double dividendo, double divisor)
         {
-            try
+            if (divisor == 0)
             {
-                if (b == 0)
-                {
-                    throw new DivideByZeroException("¡Solo Chuck Norris divide por cero!");
-                }
+                throw new DivideByZeroException("¡Solo Chuck Norris divide por cero!");
+            }
 
-                return a / b;
-            }
-            catch (DivideByZeroException e)
-            {
-                Console.WriteLine(e.Message);
-                return -1; //La unica forma que no me tire error. Sino me marcaba error. Hay alguna forma de resolver esto sin retornar -1?
-            }
+            return dividendo / divisor;
         }
        
         public static void PuntoUno()
