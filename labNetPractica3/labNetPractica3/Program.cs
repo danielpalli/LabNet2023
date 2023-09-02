@@ -34,7 +34,7 @@ namespace labNetPractica3
                         GetCustomerList(customersLogic);
                         break;
                     case "2":
-                        //GetOrdersList(ordersLogic);
+                        GetOrderList(ordersLogic);
                         break;
                     case"3":
                         //AddNewCustomer(customersLogic);
@@ -58,13 +58,32 @@ namespace labNetPractica3
 
         public static void GetCustomerList(CustomersLogic customersLogic)
         {
-            Console.WriteLine("-- Customers Address:");
+            Console.WriteLine("Listado de clientes:");
 
             foreach (Customers customer in customersLogic.GetAll())
             {
-                Console.WriteLine(customer.Address);
+                Console.WriteLine($"ID: {customer.CustomerID}");
+                Console.WriteLine($"-- Nombre Compania: {customer.CompanyName}");
+                Console.WriteLine($"-- Nombre Contacto: {customer.ContactName}");
+                Console.WriteLine($"-- Titulo Contacto: {customer.ContactTitle}");
+                Console.WriteLine($"-- Direccion: {customer.Address}");
+                Console.WriteLine($"-- Ciudad: {customer.City}");
+                Console.WriteLine($"-- Region: {customer.Region}");
+                Console.WriteLine($"-- Codigo Postal: {customer.PostalCode}");
+                Console.WriteLine($"-- Pais: {customer.Country}");
+                Console.WriteLine($"-- Telofono: {customer.Phone}");
+                Console.WriteLine($"-- Fax: {customer.Fax}");
             }
-            Console.ReadLine();
+        }
+        public static void GetOrderList(OrdersLogic ordersLogic)
+        {
+            Console.WriteLine("Listado de ordenes:");
+
+            foreach (Orders orders in ordersLogic.GetAll())
+            {
+                Console.WriteLine($"ID: {orders.OrderID}");
+                Console.WriteLine($"-- Fecha de orden: {orders.OrderDate}");
+            }
         }
     }
 }
