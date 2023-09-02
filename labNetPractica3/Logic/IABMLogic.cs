@@ -10,7 +10,7 @@ namespace Logic
     {
         List<T> GetAll();
         void Add(T element);
-        void Delete(int id);
-        void Update(T element);
+        void Delete(string id);
+        void Update(string id);
     }
 }

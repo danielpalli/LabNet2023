@@ -21,7 +21,7 @@ namespace Logic
             context.SaveChanges();
         }
 
-        public void Delete(int id)
+        public void Delete(string id)
         {
             var orderToDelete = context.Orders.Find(id);
             if (orderToDelete != null)
@@ -30,15 +30,9 @@ namespace Logic
                 context.SaveChanges(); 
             }
         }
-        public void Update(Orders order)
+        public void Update(string id)
         {
-            var orderUpdate = context.Orders.Find(order.OrderID);
-
-            if (orderUpdate != null)
-            {
-                orderUpdate.Order_Details = order.Order_Details;
-                context.SaveChanges();
-            }
+          throw new NotImplementedException();
         }
     }
 }
