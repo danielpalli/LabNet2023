@@ -87,6 +87,8 @@ namespace labNetPractica3
 
         public static void AddNewCustomer (CustomersLogic customersLogic)
         {
+            Console.WriteLine("Ingrese el ID:");
+            string customerId = Console.ReadLine();
             Console.WriteLine("Ingrese el nombre de la compania:");
             string companyName = Console.ReadLine();
             Console.WriteLine("Ingrese el nombre del contacto:");
@@ -110,6 +112,7 @@ namespace labNetPractica3
 
             var newCustomer = new Customers
             {
+                CustomerID = customerId,
                 CompanyName = companyName,
                 ContactName = contactName,
                 ContactTitle = contactTitle,
