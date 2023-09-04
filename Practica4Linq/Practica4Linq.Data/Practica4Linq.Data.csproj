@@ -57,5 +57,11 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Practica4Linq.Entities\Practica4Linq.Entities.csproj">
+      <Project>{6570ADE8-991D-4464-ABE7-7338FD6B6262}</Project>
+      <Name>Practica4Linq.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
