@@ -24,6 +24,7 @@ namespace Practica4Linq
                 "Query para devolver el primer elemento o nulo de una lista de productos donde el ID de producto sea igual a 789",
                 "Query para devolver los nombre de los Customers. Mostrarlos en Mayuscula y en Minuscula.",
                 "Query para devolver Join entre Customers y Orders donde los customers sean de la Región WA y la fecha de orden sea mayor a 1/1/1997.",
+                "Query para devolver los primeros 3 Customers de la  Región WA"
             };
 
             while (!exit)
@@ -60,6 +61,9 @@ namespace Practica4Linq
                         break;
                     case "7":
                         GetCustomersInWaWithOrdersAfter1997();
+                        break;
+                    case "8":
+                        GetfirstThreeCustomersInWa();
                         break;
                     case "0":
                         exit = true;
@@ -158,6 +162,18 @@ namespace Practica4Linq
                 Console.WriteLine($"-- Fecha Orden: {element.OrderDate}");
                 Console.WriteLine($"-- Region Cliente: {element.Customers.Region}");
 
+            }
+        }
+        public static void GetfirstThreeCustomersInWa()
+        {
+            CustomerLogic customerLogic = new CustomerLogic();
+
+            var customers = customerLogic.GetfirstThreeCustomersInWa();
+
+            foreach (var customer in customers)
+            {
+                Console.WriteLine($"Nombre del Cliente: {customer.ContactName}");
+                Console.WriteLine($"Región: {customer.Region}");
             }
         }
     }

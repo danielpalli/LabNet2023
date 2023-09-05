@@ -13,9 +13,10 @@ namespace Practica4Linq.Logic
     {
         public Customers GetElementById(string id)
         {
-            var customer = context.Customers
-                .Where(c => c.CustomerID.Equals(id))
-                .FirstOrDefault();
+            var customer = (from c in context.Customers
+                            where c.CustomerID.Equals(id)
+                            select c)
+                           .FirstOrDefault();
             return customer;
         }
       
@@ -25,9 +26,10 @@ namespace Practica4Linq.Logic
         }
         public List<Customers> GetCustomerRegion(string region)
         {
-            var customersRegion = context.Customers
-                .Where(c => c.Region.Equals(region))
-                .ToList();
+            var customersRegion = (from c in context.Customers
+                                   where c.Region.Equals(region)
+                                   select c)
+                                  .ToList();
             return customersRegion;
         }
         public List<string> GetUpperName()
@@ -39,10 +41,20 @@ namespace Practica4Linq.Logic
         }
         public List<string> GetLowerName()
         {
-            var lowerNames = context.Customers
-                .Select(c => c.ContactName.ToLower())
-                .ToList();
+            var lowerNames = (from c in context.Customers
+                              select c.ContactName.ToLower())
+                             .ToList();
             return lowerNames;
+        }
+
+        public List<Customers> GetfirstThreeCustomersInWa()
+        {
+            var customers = (from c in context.Customers
+                             where c.Region == "WA"
+                             select c)
+                            .Take(3)
+                            .ToList();
+            return customers;
         }
     }
 }
