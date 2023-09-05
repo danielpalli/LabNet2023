@@ -58,6 +58,9 @@ namespace Practica4Linq
                     case "6":
                         GetCustomersWithLowerAndUpperName();
                         break;
+                    case "7":
+                        GetCustomersInWaWithOrdersAfter1997();
+                        break;
                     case "0":
                         exit = true;
                         break;
@@ -140,6 +143,21 @@ namespace Practica4Linq
             foreach (var customer in customersLogic.GetLowerName())
             {
                 Console.WriteLine($"-- Nombre Minuscula: {customer}");
+            }
+        }
+
+        public static void GetCustomersInWaWithOrdersAfter1997()
+        {
+            OrderLogic orderLogic = new OrderLogic();
+
+            var customers = orderLogic.GetCustomersInWAWithOrdersAfter1997();
+
+            foreach (var element in customers)
+            {
+                Console.WriteLine($"-- Nombre del cliente: {element.Customers.ContactName}");
+                Console.WriteLine($"-- Fecha Orden: {element.OrderDate}");
+                Console.WriteLine($"-- Region Cliente: {element.Customers.Region}");
+
             }
         }
     }
