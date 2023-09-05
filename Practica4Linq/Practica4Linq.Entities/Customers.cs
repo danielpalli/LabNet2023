@@ -55,5 +55,10 @@ namespace Practica4Linq.Entities
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CustomerDemographics> CustomerDemographics { get; set; }
+
+        public object Where(Func<object, bool> value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

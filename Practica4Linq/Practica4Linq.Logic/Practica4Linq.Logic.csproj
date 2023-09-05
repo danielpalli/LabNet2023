@@ -48,11 +48,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseLogic.cs" />
+    <Compile Include="CustomerLogic.cs" />
+    <Compile Include="IABMLogic.cs" />
+    <Compile Include="ProductLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Practica4Linq.Data\Practica4Linq.Data.csproj">
+      <Project>{D4F86D3E-D8A1-485B-87D8-909816F4C3C7}</Project>
+      <Name>Practica4Linq.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Practica4Linq.Entities\Practica4Linq.Entities.csproj">
+      <Project>{6570ADE8-991D-4464-ABE7-7338FD6B6262}</Project>
+      <Name>Practica4Linq.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
