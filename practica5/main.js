@@ -5,13 +5,15 @@ document.querySelector('#app').innerHTML = `
       Reiniciar!
     </button>
     <h1 class="font-bold text-center text-3xl">Adivinar el Número! <spam class="bg-cyan-400 rounded-3xl shadow-md px-4 py-1">(entre 1 y 20)</spam></h1>
-    <hr>
-    <div>
-      <form>
-        <input placeholder="Ingrese un numero" />
-        <button>Probar!</button>
-      </form>
+    <hr class="my-10">
 
+    <div class="grid">
+      <div class="grid-rows-6">
+        <form class="l">
+          <input placeholder="Ingrese un numero" />
+          <button>Probar!</button>
+        </form>
+      </div>
       <div>
         status
         <hr>
