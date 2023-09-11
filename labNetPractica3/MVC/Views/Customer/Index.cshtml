@@ -1,0 +1,20 @@
+﻿@model List<Entities.Customers>
+@{
+    ViewBag.Title = "Customer Page";
+}
+
+<main>
+    <table class="table-responsive">
+        <tr>
+            <td>Id Customer</td>
+            <td>Contact Name</td>
+        </tr>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.CustomerID</td>
+                <td>@customer.ContactName</td>
+            </tr>
+        }
+    </table>
+</main>

@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entiti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicTests", "LogicTests\LogicTests.csproj", "{226B0E4F-5DFE-4AFD-B1F4-0BF4907DFEA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC", "MVC\MVC.csproj", "{9412B3C7-1FF6-4604-AF82-5B819A5489DD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{226B0E4F-5DFE-4AFD-B1F4-0BF4907DFEA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{226B0E4F-5DFE-4AFD-B1F4-0BF4907DFEA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{226B0E4F-5DFE-4AFD-B1F4-0BF4907DFEA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9412B3C7-1FF6-4604-AF82-5B819A5489DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9412B3C7-1FF6-4604-AF82-5B819A5489DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9412B3C7-1FF6-4604-AF82-5B819A5489DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9412B3C7-1FF6-4604-AF82-5B819A5489DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
