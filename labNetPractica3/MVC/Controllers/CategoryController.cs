@@ -4,24 +4,25 @@ using MVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace MVC.Controllers
 {
-    public class CustomerController : Controller
+    public class CategoryController : Controller
     {
-        CustomersLogic logic = new CustomersLogic();
+        CategoryLogic logic = new CategoryLogic();
         // GET: Customer
         public ActionResult Index()
         {
 
-            List<Entities.Customers> customers = logic.GetAll();
-            List<CustomerView> customerView = customers.Select(s => new CustomerView
+            List<Entities.Categories> categories = logic.GetAll();
+            List<CategoryView> categoryView = categories.Select(s => new CategoryView
             {
-                Id = s.CustomerID,
-                ContactName = s.ContactName,
+                Id = s.CategoryID,
+                Description = s.Description,
             }).ToList();
-            return View(customerView);
+            return View(categoryView);
         }
 
         public ActionResult Insert()
@@ -30,24 +31,24 @@ namespace MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Insert(CustomerView customerView)
+        public ActionResult Insert(CategoryView categoryView)
         {
             try
             {
-                var customerEntity = new Customers
+                var categoryEntity = new Categories
                 {
-                    ContactName = customerView.ContactName
+                    Description = categoryView.Description
                 };
-                logic.Add(customerEntity);
+                logic.Add(categoryEntity);
                 return RedirectToAction("Index");
-            } 
+            }
             catch (Exception ex)
-            { 
+            {
                 return RedirectToAction("Index", "Error");
             }
         }
 
-        public ActionResult Delete(string id)
+        public ActionResult Delete(int id)
         {
             logic.Delete(id);
             return RedirectToAction("Index");
