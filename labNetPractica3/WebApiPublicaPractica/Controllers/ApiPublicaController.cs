@@ -2,39 +2,38 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
-using System.Web.Http;
+using System.Web;
+using System.Web.Mvc;
 using WebApiPublicaPractica.Models.Dto;
 
 namespace WebApiPublicaPractica.Controllers
 {
-    public class ValuesController : ApiController
+    public class ApiPublicaController : Controller
     {
-        private readonly HttpClient httpClient;
-
-        public ValuesController()
+        // GET: ApiPublica
+        public ActionResult Index()
         {
-            httpClient = new HttpClient();
+            List<CovidDataDto> covidData = ObtenerDatosCovid();
+            return View(covidData);
         }
 
-        [HttpGet]
-        public async Task<IHttpActionResult> GetData()
+        private List<CovidDataDto> ObtenerDatosCovid()
         {
             string url = "https://api.covidtracking.com/v1/us/daily.json";
+
             try
             {
                 using (HttpClient client = new HttpClient())
                 {
-                    HttpResponseMessage response = await client.GetAsync(url);
+                    HttpResponseMessage response = client.GetAsync(url).Result;
 
                     if (response.IsSuccessStatusCode)
                     {
-                        string jsonResponse = await response.Content.ReadAsStringAsync();
+                        string jsonResponse = response.Content.ReadAsStringAsync().Result;
                         List<CovidDataDto> covidData = JsonConvert.DeserializeObject<List<CovidDataDto>>(jsonResponse);
 
-                        return Ok(covidData);
+                        return covidData;
                     }
                     else
                     {
@@ -49,4 +48,3 @@ namespace WebApiPublicaPractica.Controllers
         }
     }
 }
-

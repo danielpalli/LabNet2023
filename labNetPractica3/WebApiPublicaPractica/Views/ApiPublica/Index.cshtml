@@ -1,0 +1,28 @@
+﻿﻿@model List<WebApiPublicaPractica.Models.Dto.CovidDataDto>
+@{
+    ViewBag.Title = "Category Page";
+}
+
+<main>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">States</th>
+                <th scope="col">Positive</th>
+                <th scope="col">Negative<th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var data in Model)
+            {
+                <tr>
+                    <td>@data.Date</td>
+                    <td>@data.States</td>
+                    <td>@data.Positive</td>
+                    <td>@data.Negative</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</main>
