@@ -49,10 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseLogic.cs" />
-    <Compile Include="CategoryLogic.cs" />
-    <Compile Include="CustomersLogic.cs" />
-    <Compile Include="IABMLogic.cs" />
-    <Compile Include="OrdersLogic.cs" />
+    <Compile Include="ILogic.cs" />
+    <Compile Include="Services\CategoryService.cs" />
+    <Compile Include="Dto\CategoryDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
