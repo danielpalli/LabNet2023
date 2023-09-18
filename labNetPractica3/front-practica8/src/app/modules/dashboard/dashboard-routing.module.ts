@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 import { StartPageComponent } from './pages/start-page/start-page.component';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
+import { NewCategoryPageComponent } from './pages/new-category-page/new-category-page.component';
 
 const routes: Routes = [
   {
@@ -10,7 +11,8 @@ const routes: Routes = [
     component: DashboardLayoutComponent,
     children: [
       { path: '', component: StartPageComponent },
-      { path:'category', component: CategoryPageComponent},
+      { path: 'category', component: CategoryPageComponent },
+      { path: 'new-category', component: NewCategoryPageComponent },
       { path: '**', redirectTo: '' }
     ]
   }

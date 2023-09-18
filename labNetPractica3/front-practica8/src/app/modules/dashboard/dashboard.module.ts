@@ -8,6 +8,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MenuListComponent } from './components/menu-list/menu-list.component';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
+import { NewCategoryPageComponent } from './pages/new-category-page/new-category-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,10 +18,12 @@ import { CategoryPageComponent } from './pages/category-page/category-page.compo
     StartPageComponent,
     SidebarComponent,
     MenuListComponent,
-    CategoryPageComponent
+    CategoryPageComponent,
+    NewCategoryPageComponent
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     DashboardRoutingModule,
     SharedModule
   ]

@@ -1,8 +1,28 @@
-<div class="h-screen">
-  <div class="">
-    - Agregar maniana sweealert
-    - Agregar la tabla maniana
-    - Agregar el formulario maniana
-    - Agregar el formulario de editar maniana
-  </div>
+<div class="h-screen mx-auto container">
+  <div class="flex justify-between p-5">
+    <h1 class="text-3xl">Category</h1>
+
+    <div class="card flex justify-content-center">
+      <button pButton pRipple label="Add Category" class="p-button-success" routerLink="/dashboard/new-category"></button>
+    </div>
+    </div>
+  <p-table [value]="category" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Category Name</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Action</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-category>
+      <tr>
+        <td>{{ category.id }}</td>
+        <td>{{ category.categoryName }}</td>
+        <td>{{ category.description }}</td>
+        <td>{{ category.image }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>
