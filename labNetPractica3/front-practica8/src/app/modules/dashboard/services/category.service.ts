@@ -1,44 +1,17 @@
-import { Injectable } from '@angular/core';
-
+import { Injectable, inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Category } from 'src/app/core/interfaces/category.interface';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CategoryService {
+  private _categoryData: Category[] = [];
+  private http = inject(HttpClient);
 
-    getCategoryData(): any {
-        return [
-            {
-                id: '1000',
-                categoryName: 'Bamboo Watch',
-                description: 'Product Description',
-                image: 'bamboo-watch.jpg',
-            },
-            {
-                id: '1001',
-                categoryName: 'Black Watch',
-                description: 'Product Description',
-                image: 'black-watch.jpg',
-            },
-            {
-                id: '1002',
-                categoryName: 'Blue Band',
-                description: 'Product Description',
-                image: 'blue-band.jpg',
-            }
-        ];
-    }
+  addCategory(category: any) {}
 
-
-    getProductsMini() {
-        return Promise.resolve(this.getCategoryData().slice(0, 5));
-    }
-
-    getProductsSmall() {
-        return Promise.resolve(this.getCategoryData().slice(0, 10));
-    }
-
-    getProducts() {
-        return Promise.resolve(this.getCategoryData());
-    }
+  getCategoryData(): any {
+    return;
+  }
 
 }
