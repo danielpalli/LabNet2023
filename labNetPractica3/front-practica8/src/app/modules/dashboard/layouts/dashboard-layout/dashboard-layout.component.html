@@ -1,4 +1,6 @@
 <div class="flex">
-  <dashboard-sidebar />
-  <router-outlet />
+  <dashboard-sidebar class="flex-none"></dashboard-sidebar>
+  <div class="flex-grow">
+    <router-outlet></router-outlet>
+  </div>
 </div>

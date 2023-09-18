@@ -1,5 +1,5 @@
 <li *ngFor="let item of menuItems; let i = index">
-  <button class="text-center w-full my-2" [routerLink]="menuLinks[i]">
+  <button class="text-center w-full" [routerLink]="menuLinks[i]">
     <div class="flex items-center justify-center space-x-2">
       <i class="{{ menuIcons[i] }}"></i>
       <span>{{ item }}</span>
