@@ -1,0 +1,59 @@
+<aside class="h-screen p-2">
+  <nav
+    [ngClass]="
+      expanded
+        ? 'h-full flex flex-col rounded-md shadow-md bg-sky-950 text-white'
+        : 'h-full flex flex-col rounded-md shadow-md w-20 bg-sky-950 text-white'
+    "
+  >
+    <div class="p-4 flex justify-between items-center">
+      <img
+        src="../../../../../assets/imgs/website_logo.png"
+        [ngClass]="
+          expanded
+            ? 'overflow-hidden transition-all w-32 bg-gray-500 rounded-md p-2 mr-3'
+            : 'overflow-hidden transition-all p-2 w-0'
+        "
+        alt=""
+      />
+      <button
+        (click)="toggleExpanded()"
+        class="p-1.5 rounded-lg bg-sky-600 hover:bg-sky-700"
+      >
+        <i class="pi pi-bars text-black"></i>
+      </button>
+    </div>
+
+    <ng-container *ngIf="expanded; else collapsedSidebar">
+      <ul class="flex-1 px-3 pt-2">
+        <menu-list
+          [menuLinks]="['/dashboard/category']"
+          [menuIcons]="['pi pi-th-large', 'pi pi-users', 'pi pi-tag']"
+          [menuItems]="['Category', 'Customers', 'Products']"
+        ></menu-list>
+        <button class="text-center w-full my-2 bg-red-600 p-2 rounded-md">
+          <div class="flex items-center justify-center space-x-2">
+            <i class="pi pi-sign-out"></i>
+            <span>LogOut</span>
+          </div>
+        </button>
+      </ul>
+    </ng-container>
+    <ng-template #collapsedSidebar></ng-template>
+
+    <div class="flex items-center justify-center">
+      <ul [ngClass]="expanded ? 'hidden' : ''">
+        <menu-list
+          [menuLinks]="['/dashboard/category']"
+          [menuIcons]="['pi pi-th-large', 'pi pi-users', 'pi pi-tag']"
+          [menuItems]="['', '', '']"
+        ></menu-list>
+        <button class="text-center my-2 bg-red-600 p-2 rounded-md">
+          <div class="flex items-center justify-center space-x-2">
+            <i class="pi pi-sign-out inline-block align-middle"></i>
+          </div>
+        </button>
+      </ul>
+    </div>
+  </nav>
+</aside>
