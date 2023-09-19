@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CategoryService } from '../../services/category.service';
 import { Category } from 'src/app/core/interfaces/category.interface';
 
@@ -7,14 +7,15 @@ import { Category } from 'src/app/core/interfaces/category.interface';
   templateUrl: './category-page.component.html',
   styleUrls: ['./category-page.component.css'],
 })
-export class CategoryPageComponent {
-  category!: Category[];
+export class CategoryPageComponent implements OnInit{
+  categories: Category[] = [];
 
-  constructor(private categoryService: CategoryService) {}
+  private categoryService = inject(CategoryService);
 
   ngOnInit() {
-    this.categoryService.getCategoryData().subscribe((data: Category[]) => {
-      this.category = data;
+    this.categoryService.getCategoryData().subscribe((data: any) => {
+      this.categories = data;
+
       console.log(data);
     });
   }

@@ -6,7 +6,7 @@
       <button pButton pRipple label="Add Category" class="p-button-success" routerLink="/dashboard/new-category"></button>
     </div>
     </div>
-  <p-table [value]="category" [tableStyle]="{ 'min-width': '50rem' }">
+  <p-table [value]="categories" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header">
       <tr>
         <th>Id</th>
@@ -18,11 +18,13 @@
     </ng-template>
     <ng-template pTemplate="body" let-category>
       <tr>
-        <td>{{ category.id }}</td>
-        <td>{{ category.categoryName }}</td>
-        <td>{{ category.description }}</td>
-        <td>{{ category.image }}</td>
+        <td>{{ category.Id }}</td>
+        <td>{{ category.CategoryName }}</td>
+        <td>{{ category.Description }}</td>
+        <td>{{ category.Image }}</td>
+        <td>asd</td>
       </tr>
     </ng-template>
   </p-table>
+
 </div>

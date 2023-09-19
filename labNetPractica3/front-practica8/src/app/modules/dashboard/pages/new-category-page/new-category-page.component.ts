@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CategoryService } from '../../services/category.service';
-
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-new-category-page',
   templateUrl: './new-category-page.component.html',
@@ -11,11 +12,20 @@ export class NewCategoryPageComponent {
 
   private fb = inject(FormBuilder);
   private categoryService = inject(CategoryService);
-
+  private router = inject(Router);
   public categoryForm: FormGroup = this.fb.group({
-    name: ['', [Validators.required, Validators.minLength(3)]],
-    description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(50)]],
-    Image: ['', [Validators.required]]
+    CategoryName: ['', [Validators.required, Validators.minLength(3)]],
+    Description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(50)]],
+    Image: ['']
   });
 
+  addCategory() {
+    console.log(this.categoryForm.value);
+    this.categoryService.addCategory(this.categoryForm.value).subscribe({
+      next: () => this.router.navigateByUrl('/dashboard/category'),
+      error: (message) => {
+        Swal.fire('Error', message, 'error' )
+      }
+    });
+  }
 }
