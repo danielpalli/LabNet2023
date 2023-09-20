@@ -4,6 +4,7 @@ import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-l
 import { StartPageComponent } from './pages/start-page/start-page.component';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
 import { NewCategoryPageComponent } from './pages/new-category-page/new-category-page.component';
+import { EditCategoryPageComponent } from './pages/edit-category-page/edit-category-page.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
       { path: '', component: StartPageComponent },
       { path: 'category', component: CategoryPageComponent },
       { path: 'new-category', component: NewCategoryPageComponent },
+      { path: 'edit-category/:id', component: EditCategoryPageComponent },
       { path: '**', redirectTo: '' }
     ]
   }

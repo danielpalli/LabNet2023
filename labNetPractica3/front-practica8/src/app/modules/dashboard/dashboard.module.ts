@@ -10,6 +10,7 @@ import { MenuListComponent } from './components/menu-list/menu-list.component';
 import { CategoryPageComponent } from './pages/category-page/category-page.component';
 import { NewCategoryPageComponent } from './pages/new-category-page/new-category-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditCategoryPageComponent } from './pages/edit-category-page/edit-category-page.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SidebarComponent,
     MenuListComponent,
     CategoryPageComponent,
-    NewCategoryPageComponent
+    NewCategoryPageComponent,
+    EditCategoryPageComponent
   ],
   imports: [
     CommonModule,

@@ -11,6 +11,10 @@ export class CategoryService {
   private http = inject(HttpClient);
   private readonly baseUrl: string = environment.baseUrl;
 
+  getCategoryById(id: number): Observable<Category> {
+    return this.http.get<Category>(`${this.baseUrl}/api/category/${id}`);
+  }
+
   addCategory(category: any): Observable<Category> {
     return this.http.post<Category>(`${this.baseUrl}/api/category`, category);
   }
@@ -19,4 +23,11 @@ export class CategoryService {
     return this.http.get<Category[]>(`${this.baseUrl}/api/category`);
   }
 
+  deleteCategory(id: number): Observable<Category> {
+    return this.http.delete<Category>(`${this.baseUrl}/api/category/${id}`);
+  }
+
+  putCategory(category: any): Observable<Category> {
+    return this.http.put<Category>(`${this.baseUrl}/api/category`, category);
+  }
 }

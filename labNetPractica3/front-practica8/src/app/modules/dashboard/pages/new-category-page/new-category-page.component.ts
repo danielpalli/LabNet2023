@@ -20,7 +20,6 @@ export class NewCategoryPageComponent {
   });
 
   addCategory() {
-    console.log(this.categoryForm.value);
     this.categoryService.addCategory(this.categoryForm.value).subscribe({
       next: () => this.router.navigateByUrl('/dashboard/category'),
       error: (message) => {

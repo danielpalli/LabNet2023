@@ -28,8 +28,8 @@
       <ul class="flex-1 px-3">
         <menu-list
           [menuLinks]="['/dashboard/home', '/dashboard/category']"
-          [menuIcons]="['pi pi-home', 'pi pi-th-large', 'pi pi-users', 'pi pi-tag']"
-          [menuItems]="['Home', 'Category', 'Customers', 'Products']"
+          [menuIcons]="['pi pi-home', 'pi pi-th-large']"
+          [menuItems]="['Home', 'Category']"
         ></menu-list>
         <button class="text-center w-full my-2 bg-red-600 p-2 rounded-md">
           <div class="flex items-center justify-center space-x-2">
@@ -45,8 +45,8 @@
       <ul [ngClass]="expanded ? 'hidden' : ''">
         <menu-list
           [menuLinks]="['/dashboard/home', '/dashboard/category']"
-          [menuIcons]="['pi pi-home', 'pi pi-th-large', 'pi pi-users', 'pi pi-tag']"
-          [menuItems]="['', '', '', '']"
+          [menuIcons]="['pi pi-home', 'pi pi-th-large']"
+          [menuItems]="['', '']"
         ></menu-list>
         <button class="text-center my-2 bg-red-600 p-2 rounded-md">
           <div class="flex items-center justify-center space-x-2">
