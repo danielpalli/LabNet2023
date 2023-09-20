@@ -4,7 +4,9 @@ using Logic.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Web.Http;
+using System.Web.Http.Results;
 using WebApiPublicaPractica.Models;
 
 namespace WebApiPublicaPractica.Controllers
@@ -39,8 +41,15 @@ namespace WebApiPublicaPractica.Controllers
         [HttpPost]
         public IHttpActionResult Post(CategoryDto dto)
         {
-            logic.Insert(dto);
-            return Ok(dto);
+            bool exist = logic.findByName(dto.CategoryName);
+            
+            if (!exist)
+            {
+                logic.Insert(dto);
+                return Ok(dto);
+            }
+            string msg = "ya existe la categoria";
+            return Json(new { msg });
         }
 
         [HttpDelete]
@@ -55,9 +64,17 @@ namespace WebApiPublicaPractica.Controllers
         [HttpPut]
         public IHttpActionResult Put(CategoryDto dto)
         {
-            bool result = logic.Update(dto);
+            bool exist = logic.findByName(dto.CategoryName);
 
-            return Json(new { result });
+            if (!exist)
+            {
+                bool result = logic.Update(dto);
+
+                return Json(new { result });
+            }
+
+            string msg = "ya existe la categoria";
+            return Json(new { msg });
         }
     }
 }

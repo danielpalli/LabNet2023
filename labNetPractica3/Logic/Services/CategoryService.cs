@@ -80,5 +80,11 @@ namespace Logic
             return result;
         }
 
+        public bool findByName(string name)
+        {
+            return context.Categories.FirstOrDefault(c =>
+                name.Equals(c.CategoryName, StringComparison.OrdinalIgnoreCase)) != null;
+        }
+
     }
 }
