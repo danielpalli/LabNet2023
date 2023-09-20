@@ -17,11 +17,13 @@ namespace Entities
         [Key]
         public int CategoryID { get; set; }
 
-        [Required]
-        [StringLength(15)]
+        [Required(ErrorMessage = "El nombre de la categoria es obligatorio")]
+        [StringLength(15, ErrorMessage = "El nombre de la categoria debe tener al menos 15 caracteres")]
         public string CategoryName { get; set; }
 
+        [Required(ErrorMessage = "La descricion de la categoria es obligatorio")]
         [Column(TypeName = "ntext")]
+        [StringLength(300, ErrorMessage = "La descripcion no puede tener mas de 300 caracteres")]
         public string Description { get; set; }
 
         [Column(TypeName = "image")]
