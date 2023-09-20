@@ -18,7 +18,7 @@ namespace Entities
         public int CategoryID { get; set; }
 
         [Required(ErrorMessage = "El nombre de la categoria es obligatorio")]
-        [StringLength(15, ErrorMessage = "El nombre de la categoria debe tener al menos 15 caracteres")]
+        [StringLength(15, ErrorMessage = "El nombre de la categoria debe tener mas de 15 caracteres")]
         public string CategoryName { get; set; }
 
         [Required(ErrorMessage = "La descricion de la categoria es obligatorio")]
