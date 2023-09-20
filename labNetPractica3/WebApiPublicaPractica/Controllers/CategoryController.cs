@@ -21,6 +21,21 @@ namespace WebApiPublicaPractica.Controllers
             return result;
         }
 
+        [HttpGet]
+        public IHttpActionResult Get(int id)
+        {
+            CategoryDto category = logic.GetById(id);
+
+            if (category != null)
+            {
+                return Ok(category);
+            }
+            else
+            {
+                return NotFound();
+            }
+        }
+
         [HttpPost]
         public IHttpActionResult Post(CategoryDto dto)
         {

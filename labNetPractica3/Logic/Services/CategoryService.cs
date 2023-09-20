@@ -23,6 +23,23 @@ namespace Logic
 
             return result;
         }
+        public CategoryDto GetById(int id)
+        {
+            Categories category = context.Categories.FirstOrDefault(c => c.CategoryID == id);
+            if (category != null)
+            {
+                return new CategoryDto
+                {
+                    Id = category.CategoryID,
+                    CategoryName = category.CategoryName,
+                    Description = category.Description,
+                };
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         public bool Insert(CategoryDto dto)
         {
